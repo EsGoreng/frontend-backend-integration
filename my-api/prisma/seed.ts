@@ -1,4 +1,6 @@
-import prisma from "../config/database.js";
+import "dotenv/config";
+
+import { prisma, adapter } from "../lib/prisma";
 
 async function main() {
   const user = await prisma.user.upsert({
@@ -92,7 +94,6 @@ async function main() {
     }),
   ]);
 
-  console.log("Seed data berhasil ditambahkan");
 }
 
 main()
